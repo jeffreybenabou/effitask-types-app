@@ -1,3 +1,1 @@
-import { CustomButtonProps } from "./src/types";
-
-export { CustomButtonProps };
+export * from "./src/types";
