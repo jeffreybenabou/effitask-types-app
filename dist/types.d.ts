@@ -148,7 +148,6 @@ export type ChatProps = {
     chatOID: string;
     totalUnreadMessages: number;
     creatorOID: string;
-    messages: Array<MessageType>;
     icon: number | null | undefined;
     iconColor: string;
     iconBackground: string;

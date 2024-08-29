@@ -1,9 +1,10 @@
 {
   "name": "@jeffreybenabou/effitask-application-types",
-  "version": "3.0.3",
+  "version": "5.0.5",
   "main": "dist/types.js",
   "types": "dist/types.d.ts",
   "scripts": {
+    "publish-build": "yarn build && yarn publish",
     "prepublishOnly": "yarn build",
     "build": "tsc"
   },
