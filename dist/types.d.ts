@@ -19,7 +19,6 @@ export interface RenderTaskTypeProps {
     currentCategory: RenderTaskTypeProps | null;
 }
 export type TaskType = {
-    dates: Array<string>;
     title: string;
     description: string;
     isDone: boolean;
@@ -34,7 +33,6 @@ export type TaskType = {
     dateDue: number;
     colorPalate: number;
     taskOID: string;
-    participants: Array<string>;
     createdBy: string;
     dateDueStart: number;
     dateDueEnd: number;
