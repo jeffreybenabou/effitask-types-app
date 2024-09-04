@@ -31,7 +31,7 @@ export type TaskType = {
     category: RenderTaskTypeProps;
     progress: number;
     dateDue: number;
-    colorPalate: number;
+    colorPalate: ColorPalate;
     taskOID: string;
     createdBy: string;
     dateDueStart: number;
@@ -99,10 +99,9 @@ export type ParticipantType = {
     email: string;
 };
 export type ColorPalate = {
-    backgroundColor: string;
-    infoTextColor: string;
-    taskTitleColor: string;
-    borderColor?: string;
+    innerColor: string;
+    borderColor: string;
+    textColor: string;
 };
 export type WeatherType = {
     cityName: string;
@@ -203,6 +202,7 @@ export type CustomIconProps = {
     testId?: string;
 };
 export interface CustomButtonProps extends TouchableOpacityProps {
+    indicatorTestId?: string;
     textProps?: CustomTextProps;
     buttonStyle?: ViewStyle | ViewStyle[];
     iconProps?: CustomIconProps;
