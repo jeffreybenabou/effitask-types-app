@@ -2,7 +2,7 @@
 import { TextProps, TextStyle, ViewStyle, TouchableOpacityProps} from 'react-native';
 
 interface StyledTextSnippet {
-    text: string;
+    text?: string;
     style?: TextStyle|TextStyle[] ;
     refreshTextInterval?: number;
     onPress?: () => void;
@@ -10,7 +10,7 @@ interface StyledTextSnippet {
 }
 
 export interface CustomTextProps extends TextProps {
-    content: StyledTextSnippet[];
+    content?: StyledTextSnippet[];
     containerStyle?: TextStyle ;
     refreshAlways?: boolean;
     isButton?: boolean;
@@ -18,10 +18,15 @@ export interface CustomTextProps extends TextProps {
 
 export interface RenderTaskTypeProps {
     id?: number;
-    textProps: CustomTextProps;
+    textProps?: CustomTextProps;
     iconProps:CustomIconProps;
     changeCurrentCategory?:(task:RenderTaskTypeProps)=>void;
     currentCategory:RenderTaskTypeProps|null;
+}
+
+export type CategoryType={
+    iconProps:CustomIconProps;
+    textProps:CustomTextProps;
 }
 
 export type TaskType = {
@@ -34,10 +39,10 @@ export type TaskType = {
     createdAt: number;
     updatedAt:number;
     deletedAt: number;
-    category:RenderTaskTypeProps;
+    category:string;
     progress:number;
     dateDue:number;
-    colorPalate:ColorPalate;
+    colorPalate:number;
     taskOID:string;
     createdBy:string;
     dateDueStart:number;
@@ -46,7 +51,7 @@ export type TaskType = {
     dateDueEndTime:number;
     permanentTask:boolean;
     dayAsArray:Array<string>;
-    allDay?:boolean;
+    allDay:boolean;
     taskExtraData:Array<objectType>;
     isFavorite?:boolean;
 }
@@ -114,9 +119,10 @@ export type ParticipantType={
 }
 
 export type ColorPalate = {
-    innerColor:string,
+    mainColor:string,
+    sideColor:string,
     borderColor:string,
-    textColor:string,
+    textColor:string
 }
 
 export type WeatherType = {
@@ -232,7 +238,6 @@ export type CustomIconProps = {
 }
 
 export interface CustomButtonProps extends TouchableOpacityProps {
-    indicatorTestId?:string;
     textProps?: CustomTextProps;
     buttonStyle?: ViewStyle|ViewStyle[];
     iconProps?:CustomIconProps;
@@ -254,6 +259,8 @@ export interface CustomButtonProps extends TouchableOpacityProps {
     customIndicatorHeight?:number;
     animationProps?:any;
     loaderColor?:string;
+    indicatorTestId?:string;
+
 
 }
 

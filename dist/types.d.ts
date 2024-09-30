@@ -1,23 +1,27 @@
 import { TextProps, TextStyle, ViewStyle, TouchableOpacityProps } from 'react-native';
 interface StyledTextSnippet {
-    text: string;
+    text?: string;
     style?: TextStyle | TextStyle[];
     refreshTextInterval?: number;
     onPress?: () => void;
 }
 export interface CustomTextProps extends TextProps {
-    content: StyledTextSnippet[];
+    content?: StyledTextSnippet[];
     containerStyle?: TextStyle;
     refreshAlways?: boolean;
     isButton?: boolean;
 }
 export interface RenderTaskTypeProps {
     id?: number;
-    textProps: CustomTextProps;
+    textProps?: CustomTextProps;
     iconProps: CustomIconProps;
     changeCurrentCategory?: (task: RenderTaskTypeProps) => void;
     currentCategory: RenderTaskTypeProps | null;
 }
+export type CategoryType = {
+    iconProps: CustomIconProps;
+    textProps: CustomTextProps;
+};
 export type TaskType = {
     title: string;
     description: string;
@@ -28,10 +32,10 @@ export type TaskType = {
     createdAt: number;
     updatedAt: number;
     deletedAt: number;
-    category: RenderTaskTypeProps;
+    category: string;
     progress: number;
     dateDue: number;
-    colorPalate: ColorPalate;
+    colorPalate: number;
     taskOID: string;
     createdBy: string;
     dateDueStart: number;
@@ -99,7 +103,8 @@ export type ParticipantType = {
     email: string;
 };
 export type ColorPalate = {
-    innerColor: string;
+    mainColor: string;
+    sideColor: string;
     borderColor: string;
     textColor: string;
 };
@@ -202,7 +207,6 @@ export type CustomIconProps = {
     testId?: string;
 };
 export interface CustomButtonProps extends TouchableOpacityProps {
-    indicatorTestId?: string;
     textProps?: CustomTextProps;
     buttonStyle?: ViewStyle | ViewStyle[];
     iconProps?: CustomIconProps;
@@ -224,6 +228,7 @@ export interface CustomButtonProps extends TouchableOpacityProps {
     customIndicatorHeight?: number;
     animationProps?: any;
     loaderColor?: string;
+    indicatorTestId?: string;
 }
 export {};
 //# sourceMappingURL=types.d.ts.map
