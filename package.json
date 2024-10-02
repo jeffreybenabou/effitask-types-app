@@ -4,7 +4,7 @@
   "main": "dist/types.js",
   "types": "dist/types.d.ts",
   "scripts": {
-    "publish-build": "yarn build && yarn publish",
+    "publish-build": "yarn build && npm publish",
     "prepublishOnly": "yarn build",
     "build": "tsc"
   },
