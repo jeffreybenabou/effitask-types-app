@@ -5,8 +5,9 @@ export interface UserRecord {
     lastLogin: Date;
     photoURL: string;
     displayName: string;
+    relatedTasks: string[];
 }
-type Status = 'todo' | 'inProgress' | 'done';
+export type Status = 'todo' | 'late' | 'done';
 export interface TaskRecord {
     title: string;
     description: string;
@@ -16,8 +17,30 @@ export interface TaskRecord {
     createdBy: string;
     constant: boolean;
     allDay: boolean;
-    icon: string;
-    colorPalette: string;
+    icon: number;
+    colorPalette: number;
+    days: [];
+    taskCategory: string;
+    taskId: string;
+    permanent: boolean;
 }
-export {};
+export interface Category {
+    title: string;
+    icon: number;
+    isChosen: boolean;
+    id: string;
+}
+export interface ChatProps {
+    chatId: string;
+    users: string[];
+    messages: MessageProps[];
+    createdOn: number;
+    updatedOn: number;
+    createdById: string;
+}
+export interface MessageProps {
+    sender: string;
+    message: string;
+    timestamp: number;
+}
 //# sourceMappingURL=types.d.ts.map
