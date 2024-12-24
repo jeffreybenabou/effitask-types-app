@@ -25,17 +25,27 @@ export interface TaskRecord {
     icon: number;
     colorPalette: number;
     days:[],
-    taskCategory:string,
+    taskCategoryID:number,
     taskId:string
     permanent:boolean;
+    checkBoxes:CheckBoxProps[];
+    reminder:boolean;
 
+}
+
+export interface CheckBoxProps{
+    title:string;
+    id:number;
+    isChecked:boolean;
 }
 
 export interface Category {
     title: string;
     icon: number;
     isChosen: boolean;
-    id:string;
+    id:number;
+    isDefault?:boolean;
+
 }
 
 export interface ChatProps{
@@ -48,7 +58,11 @@ export interface ChatProps{
 }
 
 export interface MessageProps{
-    sender:string;
+    senderUID:string;
     message:string;
     timestamp:number;
+    type:"text"|"image"|"audio";
+    downloadURL?:string;
+    updatedAt:number;
+    id:string;
 }
