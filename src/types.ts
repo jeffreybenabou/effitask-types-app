@@ -8,7 +8,9 @@ export interface UserRecord {
     lastLogin: Date;
     photoURL: string;
     displayName: string;
-    relatedTasks:string[]
+    relatedTasks:string[];
+    phoneNumber: string;
+
 }
 
 export type Status = 'todo' | 'late' | 'done';
@@ -65,4 +67,10 @@ export interface MessageProps{
     downloadURL?:string;
     updatedAt:number;
     id:string;
+}
+
+export interface FileObject {
+    name: string; // Original file name
+    file: Buffer | string; // File content as a buffer or string
+    type: string; // MIME type of the file
 }

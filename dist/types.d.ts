@@ -6,6 +6,7 @@ export interface UserRecord {
     photoURL: string;
     displayName: string;
     relatedTasks: string[];
+    phoneNumber: string;
 }
 export type Status = 'todo' | 'late' | 'done';
 export interface TaskRecord {
@@ -54,5 +55,10 @@ export interface MessageProps {
     downloadURL?: string;
     updatedAt: number;
     id: string;
+}
+export interface FileObject {
+    name: string;
+    file: Buffer | string;
+    type: string;
 }
 //# sourceMappingURL=types.d.ts.map
