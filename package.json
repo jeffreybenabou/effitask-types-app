@@ -1,6 +1,6 @@
 {
   "name": "@jeffreybenabou/effitask-application-types",
-  "version": "8.6.2",
+  "version": "8.6.3",
   "main": "dist/types.js",
   "types": "dist/types.d.ts",
   "scripts": {
