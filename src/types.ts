@@ -1,5 +1,4 @@
-
-import { TextProps, TextStyle, ViewStyle, TouchableOpacityProps} from 'react-native';
+import {TextProps, TextStyle, ViewStyle, TouchableOpacityProps} from 'react-native';
 
 export interface UserRecord {
     uid: string;
@@ -8,9 +7,10 @@ export interface UserRecord {
     lastLogin: Date;
     photoURL: string;
     displayName: string;
-    relatedTasks:string[];
+    relatedTasks: string[];
     phoneNumber: string;
-
+    tasksDates: string[];
+    encryptedUserKey:string
 }
 
 export type Status = 'todo' | 'late' | 'done';
@@ -26,47 +26,63 @@ export interface TaskRecord {
     allDay: boolean;
     icon: number;
     colorPalette: number;
-    days:[],
-    taskCategoryID:number,
-    taskId:string
-    permanent:boolean;
-    checkBoxes:CheckBoxProps[];
-    reminder:boolean;
-
+    days: [],
+    links: LinkProps[],
+    images: ImageProps[],
+    taskCategoryID: number,
+    taskId: string
+    permanent: boolean;
+    checkBoxes: CheckBoxProps[];
+    reminder: boolean;
+    progress: number;
+    encryptionKey:string;
+    reminderTime: boolean
 }
 
-export interface CheckBoxProps{
-    title:string;
-    id:number;
-    isChecked:boolean;
+export interface ImageProps {
+    link: string,
+    id: number
+}
+
+export interface LinkProps {
+    id: string,
+    linkPlaceholder: string,
+    link: string
+}
+
+export interface CheckBoxProps {
+    title: string;
+    id: number;
+    isChecked: boolean;
 }
 
 export interface Category {
     title: string;
     icon: number;
     isChosen: boolean;
-    id:number;
-    isDefault?:boolean;
+    id: number;
+    isDefault?: boolean;
 
 }
 
-export interface ChatProps{
-    chatId:string;
-    users:string[];
-    messages:MessageProps[];
-    createdOn:number;
-    updatedOn:number;
-    createdById:string;
+export interface ChatProps {
+    chatId: string;
+    users: string[];
+    encryptionKey:string;
+    messages: MessageProps[];
+    createdOn: number;
+    updatedOn: number;
+    createdById: string;
 }
 
-export interface MessageProps{
-    senderUID:string;
-    message:string;
-    timestamp:number;
-    type:"text"|"image"|"audio";
-    downloadURL?:string;
-    updatedAt:number;
-    id:string;
+export interface MessageProps {
+    senderUID: string;
+    message: string;
+    timestamp: number;
+    type: "text" | "image" | "audio";
+    downloadURL?: string;
+    updatedAt: number;
+    id: string;
 }
 
 export interface FileObject {

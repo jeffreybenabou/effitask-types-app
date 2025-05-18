@@ -7,6 +7,8 @@ export interface UserRecord {
     displayName: string;
     relatedTasks: string[];
     phoneNumber: string;
+    tasksDates: string[];
+    encryptedUserKey: string;
 }
 export type Status = 'todo' | 'late' | 'done';
 export interface TaskRecord {
@@ -21,11 +23,24 @@ export interface TaskRecord {
     icon: number;
     colorPalette: number;
     days: [];
+    links: LinkProps[];
+    images: ImageProps[];
     taskCategoryID: number;
     taskId: string;
     permanent: boolean;
     checkBoxes: CheckBoxProps[];
     reminder: boolean;
+    progress: number;
+    encryptionKey: string;
+}
+export interface ImageProps {
+    link: string;
+    id: string;
+}
+export interface LinkProps {
+    id: string;
+    linkPlaceholder: string;
+    link: string;
 }
 export interface CheckBoxProps {
     title: string;
@@ -42,6 +57,7 @@ export interface Category {
 export interface ChatProps {
     chatId: string;
     users: string[];
+    encryptionKey: string;
     messages: MessageProps[];
     createdOn: number;
     updatedOn: number;
