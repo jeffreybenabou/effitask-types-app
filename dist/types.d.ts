@@ -28,14 +28,16 @@ export interface TaskRecord {
     taskCategoryID: number;
     taskId: string;
     permanent: boolean;
+    participants: string[];
     checkBoxes: CheckBoxProps[];
     reminder: boolean;
     progress: number;
     encryptionKey: string;
+    reminderTime: boolean;
 }
 export interface ImageProps {
     link: string;
-    id: string;
+    id: number;
 }
 export interface LinkProps {
     id: string;
@@ -59,6 +61,7 @@ export interface ChatProps {
     users: string[];
     encryptionKey: string;
     messages: MessageProps[];
+    index: number;
     createdOn: number;
     updatedOn: number;
     createdById: string;
@@ -77,4 +80,14 @@ export interface FileObject {
     file: Buffer | string;
     type: string;
 }
+export declare const taskResponseCodes: {
+    TASK_ALREADY_EXISTS: number;
+    TASK_NOT_FOUND: number;
+    TASK_NOT_CREATED: number;
+    TASK_NOT_DELETED: number;
+    TASK_NOT_UPDATED: number;
+    TASK_NOT_COMPLETED: number;
+    TASK_NOT_UNCOMPLETED: number;
+    TASK_MISSING_FIELDS: number;
+};
 //# sourceMappingURL=types.d.ts.map

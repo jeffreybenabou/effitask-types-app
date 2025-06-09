@@ -32,6 +32,7 @@ export interface TaskRecord {
     taskCategoryID: number,
     taskId: string
     permanent: boolean;
+    participants:string[];
     checkBoxes: CheckBoxProps[];
     reminder: boolean;
     progress: number;
@@ -70,6 +71,7 @@ export interface ChatProps {
     users: string[];
     encryptionKey:string;
     messages: MessageProps[];
+    index: number;
     createdOn: number;
     updatedOn: number;
     createdById: string;
@@ -89,4 +91,15 @@ export interface FileObject {
     name: string; // Original file name
     file: Buffer | string; // File content as a buffer or string
     type: string; // MIME type of the file
+}
+
+export const taskResponseCodes = {
+    TASK_ALREADY_EXISTS: 1,
+    TASK_NOT_FOUND: 2,
+    TASK_NOT_CREATED: 3,
+    TASK_NOT_DELETED: 4,
+    TASK_NOT_UPDATED: 5,
+    TASK_NOT_COMPLETED: 6,
+    TASK_NOT_UNCOMPLETED: 7,
+    TASK_MISSING_FIELDS: 8,
 }
