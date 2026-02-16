@@ -51,7 +51,7 @@ export interface CheckBoxProps {
 }
 export interface Category {
     title: string;
-    icon: number;
+    icon: string;
     isChosen: boolean;
     id: number;
     isDefault?: boolean;
